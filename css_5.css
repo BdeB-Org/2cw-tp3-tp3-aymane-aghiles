@@ -30,3 +30,46 @@
     text-decoration: none;
     font-size: 1.1rem;
   }
+
+  nav a:hover {
+    color: #4CAF50;
+  }
+
+  main {
+    padding: 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .recette {
+    background-color: #f4f4f4;
+    padding: 1.5em;
+    text-align: center;
+  }
+
+  .recette h3 {
+    margin-bottom: 0.5em;
+  }
+
+  .recette p {
+    font-size: 1rem;
+  }
+
+  .recette a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    margin-top: 1em;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin-top: 2em;
+  }
