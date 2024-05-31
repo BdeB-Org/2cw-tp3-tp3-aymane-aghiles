@@ -1,0 +1,70 @@
+-- Création de la table Utilisateur
+CREATE TABLE Utilisateur (
+ ID_utilisateur VARCHAR2(255) PRIMARY KEY,
+ nom VARCHAR2(255),
+ email VARCHAR2(255),
+ mot_de_passe VARCHAR2(255)
+);
+
+-- Création de la table Recette
+CREATE TABLE Recette (
+ ID_recette VARCHAR2(255) PRIMARY KEY,
+ titre VARCHAR2(255),
+ description VARCHAR2(4000), -- TEXT remplacé par VARCHAR2(4000) pour stocker de longues descriptions
+ temps_preparation VARCHAR2(255), -- INT remplacé par VARCHAR2
+ ID_utilisateur VARCHAR2(255),
+ FOREIGN KEY (ID_utilisateur) REFERENCES Utilisateur(ID_utilisateur)
+);
+
+-- Création de la table Ingredient
+CREATE TABLE Ingredient (
+ ID_ingredient VARCHAR2(255) PRIMARY KEY,
+ nom_ingredient VARCHAR2(255)
+);
+
+-- Création de la table Recette_Ingredient
+CREATE TABLE Recette_Ingredient (
+ ID_recette VARCHAR2(255),
+ ID_ingredient VARCHAR2(255),
+ quantite VARCHAR2(255), -- INT remplacé par VARCHAR2
+ PRIMARY KEY (ID_recette, ID_ingredient),
+ FOREIGN KEY (ID_recette) REFERENCES Recette(ID_recette),
+ FOREIGN KEY (ID_ingredient) REFERENCES Ingredient(ID_ingredient)
+);
+
+BEGIN
+  ORDS.enable_object(
+    p_enabled      => TRUE,
+    p_schema       => 'RESTSCOTT',
+    p_object       => 'UTILISATEUR',
+    p_object_type  => 'TABLE',
+    p_object_alias => 'inscription'
+  );
+  COMMIT;
+END;
+/
+
+SELECT * FROM Utilisateur;
+
+BEGIN
+  ORDS.enable_object(
+    p_enabled      => TRUE,
+    p_schema       => 'RESTSCOTT',
+    p_object       => 'INGREDIENTS',
+    p_object_type  => 'TABLE',
+    p_object_alias => 'Ingredient'
+  );
+  COMMIT;
+END;
+/
+
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('2', 'Vanille');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('3', 'Chocolat');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('4', 'Fraise');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('5', 'Banane');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('6', 'Pomme');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('7', 'Poire');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('8', 'Orange');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('9', 'Citron');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('10', 'Ananas');
+INSERT INTO Ingredient (ID_ingredient, nom_ingredient) VALUES ('11', 'Mangue');
