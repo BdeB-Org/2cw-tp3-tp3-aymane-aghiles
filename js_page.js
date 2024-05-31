@@ -18,3 +18,7 @@ async function getIngredientsByRecipe(recipeId) {
     `, [recipeId]);
 
     console.log(result.rows);
+
+} catch (err) {
+    console.error('Une erreur est survenue lors de la récupération des ingrédients :', err);
+  } 
