@@ -23,3 +23,31 @@ function createNode(element) {
         console.error('Erreur lors de la récupération des utilisateurs :', error);
       });
   }
+function saveData(userId) {
+    console.log('next user id ' + userId);
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  const data = {
+    nom: username,
+    mot_de_passe: password
+  };
+
+  const url = "http://localhost:8080/ords/hr2/inscription/" + userId;
+
+  fetch(url, {
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Données insérées avec succès!', result);
+      displayInsertedData(result.nom_utilisateur); // Appel d'une fonction pour afficher les données insérées
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'insertion des données :', error);
+    });
+}
