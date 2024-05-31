@@ -21,4 +21,13 @@ async function getIngredientsByRecipe(recipeId) {
 
 } catch (err) {
     console.error('Une erreur est survenue lors de la récupération des ingrédients :', err);
-  } 
+  } finally {
+    if (connection) {
+      try {
+        await connection.close();
+      } catch (err) {
+        console.error('Une erreur est survenue lors de la fermeture de la connexion :', err);
+      }
+    }
+  }
+}
