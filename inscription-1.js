@@ -51,3 +51,10 @@ function saveData(userId) {
       console.error('Erreur lors de l\'insertion des données :', error);
     });
 }
+
+const form = document.getElementById('formulaire');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+  
+    fetchUsers();
+  });
