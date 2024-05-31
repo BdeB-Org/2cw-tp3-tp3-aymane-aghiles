@@ -31,3 +31,14 @@
   nav a:hover {
     color: #4CAF50;
   }
+  main {
+    padding: 2em;
+    text-align: center;
+
+  }
+
+  .recette {
+    background-color: #f4f4f4;
+    padding: 1.5em;
+    text-align: center;
+  }
