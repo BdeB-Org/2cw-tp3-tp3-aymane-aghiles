@@ -58,3 +58,11 @@ const form = document.getElementById('formulaire');
   
     fetchUsers();
   });
+
+  function displayInsertedData(nomUtilisateur) {
+    let li = createNode("li");
+    let span = createNode("span");
+    span.textContent = nomUtilisateur;
+    append(li, span);
+    append(document.getElementById('utilisateurList'), li);
+  }
