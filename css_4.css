@@ -8,3 +8,17 @@
     font-family: Arial, sans-serif;
     line-height: 1.6;
   }
+  header {
+    background-color: #4CAF50;
+    padding: 1em;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 1em 0;
+  }
