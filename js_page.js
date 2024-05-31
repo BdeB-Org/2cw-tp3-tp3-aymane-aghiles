@@ -31,3 +31,6 @@ async function getIngredientsByRecipe(recipeId) {
     }
   }
 }
+
+// Utilisation de la fonction pour récupérer les ingrédients d'une recette avec un ID donné
+getIngredientsByRecipe(1); // Remplacez 1 par l'ID de la recette souhaitée
